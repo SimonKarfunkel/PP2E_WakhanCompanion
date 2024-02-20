@@ -123,33 +123,43 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  @override
+@override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                _drawCard();
-                _compareCards();
-              },
-              child: Text('Draw a Card'),
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('graphics/background.jpg'), // Replace with your background image
+                fit: BoxFit.cover,
+              ),
             ),
-            SizedBox(height: 20),
-            _buildCardInfo(),
-          ],
+          ),
+          Container(
+            color: Colors.white.withOpacity(0.5), // Semi-transparent black color overlay
+          ),
+          Center(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: () {
+                  _drawCard();
+                  _compareCards();
+                },
+                child: Text('Draw a Card'),
+              ),
+              SizedBox(height: 20),
+              _buildCardInfo(),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+        ),
+      ],
+    ),
     );
   }
 
@@ -214,14 +224,19 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
           
           for (final action in card.actions)   // Use map to display images for each letter in card.loyaltyOrder
-              Text(
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0), // Adjust the horizontal padding as needed
+              child: Text(
                 action,
+                textAlign: TextAlign.center, // Align text to the center
                 style: TextStyle(
                   fontSize: 16, // Adjust font size
                   fontStyle: FontStyle.italic, // Apply italic style
-                  color: Colors.green, // Change text color
+                  fontWeight: FontWeight.bold, // Apply bold style
+                  color: Colors.black, // Change text color
                 ),
               ),
+            ),
           
           // Add more card attributes here
         ],
