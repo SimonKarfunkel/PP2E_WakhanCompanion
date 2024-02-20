@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="7.9999413mm"
+   height="7.999578mm"
+   viewBox="0 0 7.9999414 7.999578"
+   version="1.1"
+   id="svg9868"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="background.svg"
+   inkscape:export-filename="star.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview9870"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.9540685"
+     inkscape:cx="26.573521"
+     inkscape:cy="50.100396"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="355"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs9865">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1248">
+      <path
+         d="m 158.008,27.331 h 22.677 v 22.676 h -22.677 z"
+         id="path1246" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Lager 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-60.815838,-140.65834)">
+    <g
+       id="g1242"
+       transform="matrix(0.35277777,0,0,-0.35277777,5.0741285,158.2997)">
+      <g
+         id="g1244"
+         clip-path="url(#clipPath1248)">
+        <g
+           id="g1250"
+           transform="matrix(1.9253809,0,0,-1.9255131,98.597565,37.590935)">
+          <g
+             id="g1252"
+             transform="translate(34.9964,-0.5606)">
+            <path
+               d="m 0,0 c 0,-0.965 0.785,-1.75 1.75,-1.75 0.964,0 1.749,0.785 1.749,1.75 0,0.965 -0.785,1.75 -1.749,1.75 C 0.785,1.75 0,0.965 0,0 M -4.14,5.889 H 7.638 V -5.888 H -4.14 Z"
+               style="fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
+               id="path1254" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 
 
@@ -19,15 +21,25 @@ class Card {
   Card(this.loyaltyOrder, this.actions, this.redArrowPos, this.blackArrowPos, this.regionPriority, this.backUpperPos, this.numberOrder);
 }
 
-//R = RECTANGLE = KANDAHAR
-//O = OCTAGON = HERAT
-//S = STAR = PERSIA
-//P = PENTAGON = KABUL
-//A = DOUBLE STAR = TRANSCASPIA
-//C = CIRCLE = PUNJAB
+  // Creating a map with shape abbreviations and their corresponding full names
+  Map<String, String> shapeMap = {
+    'R': 'RECTANGLE',
+    'O': 'OCTAGON',
+    'S': 'STAR',
+    'P': 'PENTAGON',
+    'A': 'DOUBLE STAR',
+    'C': 'CIRCLE',
+  };
+
+    // Creating a map with shape abbreviations and their corresponding full names
+  Map<String, String> loyaltyMap = {
+    'G': 'graphics/green.svg',
+    'P': 'graphics/pink.svg',
+    'Y': 'graphics/yellow.svg',
+  };
 
 
-
+//  ${shapeMap['R']}
 
 final List<Card> cards = [
   Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
@@ -36,10 +48,8 @@ final List<Card> cards = [
   Card("GPY", ["If Wakhan has no card with the move action, radicalize a card with move action", "Move", "Radicalize"], 1, 0, "SRPOCA", "BOTTOM", [5,0,1,2,3,4]),
   Card("YGP", ["Tax", "If military cards are favored, radicalize the highest ranked military card", "Radicalize"], 1, 2, "APRSOC", "TOP", [3,4,5,0,1,2]),
   Card("GYP", ["Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Battle", "Radicalize"], 0, 3, "PASCRO", "BOTTOM", [2,3,4,5,0,1]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
+  Card("GPY", ["If Wakhan has fewer spies than any other player then radicalize the highest ranked intelligence card", "Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Radicalize"], 1, 1, "SAPCRO", "TOP", [4,5,0,1,2,3]),
+  Card("YGP", ["If Wakhan has fewer than 2 Rupees, radicalize the card that will net the most rupees", "Build", "Radicalize"], 1, 1, "ROPASC", "BOTTOM", [2,3,4,5,0,1]),
   
   Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
   
@@ -171,13 +181,60 @@ class _MyHomePageState extends State<MyHomePage> {
       final card = shuffledCards[_cardIndex];
       return Column(
         children: [
-          Text("Loyalty Order: ${card.loyaltyOrder}"),
-          Text("Actions: ${card.actions.join(', ')}"),
+          Text(
+                "Pragmatic loyalty: ",
+                style: TextStyle(
+                  fontSize: 32, // Adjust font size
+                  fontWeight: FontWeight.bold, // Apply bold style
+                  fontStyle: FontStyle.italic, // Apply italic style
+                  color: Colors.black, // Change text color
+                ),
+              ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              
+              for (final loyalty in card.loyaltyOrder.characters)   // Use map to display images for each letter in card.loyaltyOrder
+              SvgPicture.asset(
+                loyaltyMap[loyalty] ?? '', // Load SVG from asset
+                width: 48, // Adjust width as needed
+                height: 48, // Adjust height as needed
+              ),
+              
+            ],
+          ),
+          Text(
+                "Action order: ",
+                style: TextStyle(
+                  fontSize: 32, // Adjust font size
+                  fontWeight: FontWeight.bold, // Apply bold style
+                  fontStyle: FontStyle.italic, // Apply italic style
+                  color: Colors.black, // Change text color
+                ),
+              ),
+          
+          for (final action in card.actions)   // Use map to display images for each letter in card.loyaltyOrder
+              Text(
+                action,
+                style: TextStyle(
+                  fontSize: 16, // Adjust font size
+                  fontStyle: FontStyle.italic, // Apply italic style
+                  color: Colors.green, // Change text color
+                ),
+              ),
+          
           // Add more card attributes here
         ],
       );
     } else {
-      return Text("No more cards");
+      return Text(
+        "No more cards",
+        style: TextStyle(
+          fontSize: 18, // Adjust font size
+          fontWeight: FontWeight.bold, // Apply bold style
+          color: Colors.red, // Change text color
+        ),
+      );
     }
   }
 
