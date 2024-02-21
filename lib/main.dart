@@ -23,12 +23,12 @@ class Card {
 
   // Creating a map with shape abbreviations and their corresponding full names
   Map<String, String> shapeMap = {
-    'R': 'RECTANGLE',
-    'O': 'OCTAGON',
-    'S': 'STAR',
-    'P': 'PENTAGON',
-    'A': 'DOUBLE STAR',
-    'C': 'CIRCLE',
+    'R': 'graphics/rectangle.svg',
+    'O': 'graphics/octagon.svg',
+    'S': 'graphics/star.svg',
+    'P': 'graphics/pentagon.svg',
+    'A': 'graphics/double_star.svg',
+    'C': 'graphics/circle.svg',
   };
 
     // Creating a map with shape abbreviations and their corresponding full names
@@ -50,38 +50,22 @@ final List<Card> cards = [
   Card("GYP", ["Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Battle", "Radicalize"], 0, 3, "PASCRO", "BOTTOM", [2,3,4,5,0,1]),
   Card("GPY", ["If Wakhan has fewer spies than any other player then radicalize the highest ranked intelligence card", "Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Radicalize"], 1, 1, "SAPCRO", "TOP", [4,5,0,1,2,3]),
   Card("YGP", ["If Wakhan has fewer than 2 Rupees, radicalize the card that will net the most rupees", "Build", "Radicalize"], 1, 1, "ROPASC", "BOTTOM", [2,3,4,5,0,1]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
+  Card("PGY", ["Betray", "Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Radicalize"], 1, 5, "POCASR", "BOTTOM", [0,1,2,3,4,5]),
+  Card("GPY", ["If political cards are favored, radicalize the highest ranked economic card", "Radicalize the highest ranked political card", "Radicalize"], 0, 1, "SCROAP", "BOTTOM", [4,5,0,1,2,3]),
+  Card("PYG", ["Tax", "Betray", "Radicalize"], 1, 4, "ASCROP", "BOTTOM", [1,2,3,4,5,0]),
+  Card("PGY", ["Radicalize a card that will gain Wakhan control of a region", "Battle", "Radicalize"], 0, 1, "SROAPC", "TOP", [4,5,0,1,2,3]),
+  Card("PYG", ["Tax", "Radicalize the highest ranked intelligence card", "Radicalize"], 1, 3, "CSORAP", "TOP", [2,3,4,5,0,1]),
+  Card("PYG", ["Radicalize the highest ranked political card", "If military cards are favored, radicalize the highest ranked military card", "Radicalize"], 1, 3, "OCAPRS", "BOTTOM", [2,3,4,5,0,1]),
+  Card("GYP", ["If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "If military cards are favored, radicalize the highest ranked military card", "Radicalize"], 1, 0, "CSORPA", "TOP", [5,0,1,2,3,4]),
+  Card("YPG", ["Tax", "Betray", "Radicalize"], 0, 3, "PCROSA", "TOP", [2,3,4,5,0,1]),
+  Card("PYG", ["Radicalize an intelligence card", "Move", "Radicalize"], 0, 0, "OSAPCR", "TOP", [5,0,1,2,3,4]),
+  Card("GYP", ["If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Radicalize"], 0, 5, "CASRPO", "TOP", [0,1,2,3,4,5]),
+  Card("YGP", ["If Wakhan has fewer than 2 Rupees, radicalize the card that will net the most rupees", "Build", "Radicalize"], 0, 4, "RPOCAS", "TOP", [1,2,3,4,5,0]),
+  Card("YPG", ["Radicalize the card that would place the most armies and/or roads", "If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "Radicalize"], 1, 5, "PCRSOA", "TOP", [0,1,2,3,4,5]),
+  Card("GYP", ["Build", "Move", "Radicalize"], 1, 4, "CAPSRO", "BOTTOM", [1,2,3,4,5,0]),
+  Card("YGP", ["Build", "Move", "Radicalize"], 0, 2, "ROCAPS", "BOTTOM", [3,4,5,0,1,2]),
+  Card("YPG", ["If Wakhans court size is at its limit, radicalize the highest ranked political card", "Tax", "Radicalize"], 0, 0, "ARSOCP", "BOTTOM", [5,0,1,2,3,4]),
+  Card("GPY", ["If a coalition has dominance, radicalize a matching patriot", "If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "Radicalize"], 0, 2, "OPACSR", "TOP", [3,4,5,0,1,2]),
   // Add more cards as needed
 ];
 
@@ -123,6 +107,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+
+
 @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,15 +131,20 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ElevatedButton(
+              
+              SizedBox(height: 20),
+              _buildCardInfo(),
+              Expanded(child: Align(alignment: Alignment.bottomCenter,
+              child: Container(padding: EdgeInsets.all(30),
+              child: ElevatedButton(
                 onPressed: () {
                   _drawCard();
                   _compareCards();
                 },
                 child: Text('Draw a Card'),
+                )
+                ))
               ),
-              SizedBox(height: 20),
-              _buildCardInfo(),
             ],
           ),
         ),
@@ -213,7 +204,10 @@ class _MyHomePageState extends State<MyHomePage> {
               
             ],
           ),
-          Text(
+          Container(
+            padding: EdgeInsets.only(top: 50),
+          
+            child: Text(
                 "Action order: ",
                 style: TextStyle(
                   fontSize: 32, // Adjust font size
@@ -222,23 +216,60 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.black, // Change text color
                 ),
               ),
-          
+          ),
           for (final action in card.actions)   // Use map to display images for each letter in card.loyaltyOrder
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0), // Adjust the horizontal padding as needed
-              child: Text(
-                action,
-                textAlign: TextAlign.center, // Align text to the center
+            
+              Container(
+                width: 350,
+                padding: const EdgeInsets.all(12),
+                
+
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.5),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                border: Border.all(color: Colors.orange, width: 2),
+                ),
+                child: Text(
+                  action,
+                  softWrap: true,
+                  textAlign: TextAlign.center, // Align text to the center
+                  style: TextStyle(
+                    fontSize: 20, // Adjust font size
+                    fontStyle: FontStyle.italic, // Apply italic style
+                    fontWeight: FontWeight.bold, // Apply bold style
+                    color: Colors.black, // Change text color
+                    
+                  ),
+                ),
+              ),
+            
+          
+          Container(
+            padding: EdgeInsets.only(top: 50),
+          
+          child: Text(
+                "Region Priority: ",
                 style: TextStyle(
                   fontSize: 16, // Adjust font size
-                  fontStyle: FontStyle.italic, // Apply italic style
                   fontWeight: FontWeight.bold, // Apply bold style
+                  fontStyle: FontStyle.italic, // Apply italic style
                   color: Colors.black, // Change text color
                 ),
               ),
-            ),
-          
-          // Add more card attributes here
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              
+              for (final region in card.regionPriority.characters)   // Use map to display images for each letter in card.loyaltyOrder
+              SvgPicture.asset(
+                shapeMap[region] ?? '', // Load SVG from asset
+                width: 36, // Adjust width as needed
+                height: 36, // Adjust height as needed
+              ),
+              
+            ],
+          ),// Add more card attributes here
         ],
       );
     } else {
@@ -248,6 +279,7 @@ class _MyHomePageState extends State<MyHomePage> {
           fontSize: 18, // Adjust font size
           fontWeight: FontWeight.bold, // Apply bold style
           color: Colors.red, // Change text color
+          
         ),
       );
     }
