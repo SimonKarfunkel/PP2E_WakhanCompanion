@@ -12,7 +12,7 @@ void main() {
 class Card {
   final String loyaltyOrder;
   final List<String> actions;
-  final int redArrowPos;
+  final bool redArrowPos;
   final int blackArrowPos;
   final String regionPriority;
   final String backUpperPos;
@@ -38,41 +38,48 @@ class Card {
     'Y': 'graphics/yellow.svg',
   };
 
+  Map<double, String> radPlace = {
+    0 : 'LEFT',
+    1 : 'RIGHT',
+  };
+
 
 //  ${shapeMap['R']}
 
 final List<Card> cards = [
-  Card("PGY", ["Move", "Betray", "Radicalize"], 1, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
-  Card("YPG", ["Move", "Battle", "Radicalize"], 1, 2, "APCSOR", "BOTTOM", [3,4,5,0,1,2]),
-  Card("PGY", ["Radicalize a card that will gain Wakhan control of a region", "Build", "Radicalize"], 0, 5, "ORAPCS", "BOTTOM", [0,1,2,3,4,5]),
-  Card("GPY", ["If Wakhan has no card with the move action, radicalize a card with move action", "Move", "Radicalize"], 1, 0, "SRPOCA", "BOTTOM", [5,0,1,2,3,4]),
-  Card("YGP", ["Tax", "If military cards are favored, radicalize the highest ranked military card", "Radicalize"], 1, 2, "APRSOC", "TOP", [3,4,5,0,1,2]),
-  Card("GYP", ["Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Battle", "Radicalize"], 0, 3, "PASCRO", "BOTTOM", [2,3,4,5,0,1]),
-  Card("GPY", ["If Wakhan has fewer spies than any other player then radicalize the highest ranked intelligence card", "Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Radicalize"], 1, 1, "SAPCRO", "TOP", [4,5,0,1,2,3]),
-  Card("YGP", ["If Wakhan has fewer than 2 Rupees, radicalize the card that will net the most rupees", "Build", "Radicalize"], 1, 1, "ROPASC", "BOTTOM", [2,3,4,5,0,1]),
-  Card("PGY", ["Betray", "Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Radicalize"], 1, 5, "POCASR", "BOTTOM", [0,1,2,3,4,5]),
-  Card("GPY", ["If political cards are favored, radicalize the highest ranked economic card", "Radicalize the highest ranked political card", "Radicalize"], 0, 1, "SCROAP", "BOTTOM", [4,5,0,1,2,3]),
-  Card("PYG", ["Tax", "Betray", "Radicalize"], 1, 4, "ASCROP", "BOTTOM", [1,2,3,4,5,0]),
-  Card("PGY", ["Radicalize a card that will gain Wakhan control of a region", "Battle", "Radicalize"], 0, 1, "SROAPC", "TOP", [4,5,0,1,2,3]),
-  Card("PYG", ["Tax", "Radicalize the highest ranked intelligence card", "Radicalize"], 1, 3, "CSORAP", "TOP", [2,3,4,5,0,1]),
-  Card("PYG", ["Radicalize the highest ranked political card", "If military cards are favored, radicalize the highest ranked military card", "Radicalize"], 1, 3, "OCAPRS", "BOTTOM", [2,3,4,5,0,1]),
-  Card("GYP", ["If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "If military cards are favored, radicalize the highest ranked military card", "Radicalize"], 1, 0, "CSORPA", "TOP", [5,0,1,2,3,4]),
-  Card("YPG", ["Tax", "Betray", "Radicalize"], 0, 3, "PCROSA", "TOP", [2,3,4,5,0,1]),
-  Card("PYG", ["Radicalize an intelligence card", "Move", "Radicalize"], 0, 0, "OSAPCR", "TOP", [5,0,1,2,3,4]),
-  Card("GYP", ["If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Radicalize"], 0, 5, "CASRPO", "TOP", [0,1,2,3,4,5]),
-  Card("YGP", ["If Wakhan has fewer than 2 Rupees, radicalize the card that will net the most rupees", "Build", "Radicalize"], 0, 4, "RPOCAS", "TOP", [1,2,3,4,5,0]),
-  Card("YPG", ["Radicalize the card that would place the most armies and/or roads", "If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "Radicalize"], 1, 5, "PCRSOA", "TOP", [0,1,2,3,4,5]),
-  Card("GYP", ["Build", "Move", "Radicalize"], 1, 4, "CAPSRO", "BOTTOM", [1,2,3,4,5,0]),
-  Card("YGP", ["Build", "Move", "Radicalize"], 0, 2, "ROCAPS", "BOTTOM", [3,4,5,0,1,2]),
-  Card("YPG", ["If Wakhans court size is at its limit, radicalize the highest ranked political card", "Tax", "Radicalize"], 0, 0, "ARSOCP", "BOTTOM", [5,0,1,2,3,4]),
-  Card("GPY", ["If a coalition has dominance, radicalize a matching patriot", "If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "Radicalize"], 0, 2, "OPACSR", "TOP", [3,4,5,0,1,2]),
+  Card("PGY", ["Move", "Betray", "Radicalize"], true, 4, "ROSPAC", "TOP", [1,2,3,4,5,0]),
+  Card("YPG", ["Move", "Battle", "Radicalize"], true, 2, "APCSOR", "BOTTOM", [3,4,5,0,1,2]),
+  Card("PGY", ["Radicalize a card that will gain Wakhan control of a region", "Build", "Radicalize"], false, 5, "ORAPCS", "BOTTOM", [0,1,2,3,4,5]),
+  Card("GPY", ["If Wakhan has no card with the move action, radicalize a card with move action", "Move", "Radicalize"], true, 0, "SRPOCA", "BOTTOM", [5,0,1,2,3,4]),
+  Card("YGP", ["Tax", "If military cards are favored, radicalize the highest ranked military card", "Radicalize"], true, 2, "APRSOC", "TOP", [3,4,5,0,1,2]),
+  Card("GYP", ["Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Battle", "Radicalize"], false, 3, "PASCRO", "BOTTOM", [2,3,4,5,0,1]),
+  Card("GPY", ["If Wakhan has fewer spies than any other player then radicalize the highest ranked intelligence card", "Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Radicalize"], true, 1, "SAPCRO", "TOP", [4,5,0,1,2,3]),
+  Card("YGP", ["If Wakhan has fewer than 2 Rupees, radicalize the card that will net the most rupees", "Build", "Radicalize"], true, 1, "ROPASC", "BOTTOM", [2,3,4,5,0,1]),
+  Card("PGY", ["Betray", "Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Radicalize"], true, 5, "POCASR", "BOTTOM", [0,1,2,3,4,5]),
+  Card("GPY", ["If political cards are favored, radicalize the highest ranked economic card", "Radicalize the highest ranked political card", "Radicalize"], false, 1, "SCROAP", "BOTTOM", [4,5,0,1,2,3]),
+  Card("PYG", ["Tax", "Betray", "Radicalize"], true, 4, "ASCROP", "BOTTOM", [1,2,3,4,5,0]),
+  Card("PGY", ["Radicalize a card that will gain Wakhan control of a region", "Battle", "Radicalize"], false, 1, "SROAPC", "TOP", [4,5,0,1,2,3]),
+  Card("PYG", ["Tax", "Radicalize the highest ranked intelligence card", "Radicalize"], true, 3, "CSORAP", "TOP", [2,3,4,5,0,1]),
+  Card("PYG", ["Radicalize the highest ranked political card", "If military cards are favored, radicalize the highest ranked military card", "Radicalize"], true, 3, "OCAPRS", "BOTTOM", [2,3,4,5,0,1]),
+  Card("GYP", ["If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "If military cards are favored, radicalize the highest ranked military card", "Radicalize"], true, 0, "CSORPA", "TOP", [5,0,1,2,3,4]),
+  Card("YPG", ["Tax", "Betray", "Radicalize"], false, 3, "PCROSA", "TOP", [2,3,4,5,0,1]),
+  Card("PYG", ["Radicalize an intelligence card", "Move", "Radicalize"], false, 0, "OSAPCR", "TOP", [5,0,1,2,3,4]),
+  Card("GYP", ["If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "Battle on the highest priority court card with the most spies where Wakhan also has at least one spy", "Radicalize"], false, 5, "CASRPO", "TOP", [0,1,2,3,4,5]),
+  Card("YGP", ["If Wakhan has fewer than 2 Rupees, radicalize the card that will net the most rupees", "Build", "Radicalize"], false, 4, "RPOCAS", "TOP", [1,2,3,4,5,0]),
+  Card("YPG", ["Radicalize the card that would place the most armies and/or roads", "If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "Radicalize"], true, 5, "PCRSOA", "TOP", [0,1,2,3,4,5]),
+  Card("GYP", ["Build", "Move", "Radicalize"], true, 4, "CAPSRO", "BOTTOM", [1,2,3,4,5,0]),
+  Card("YGP", ["Build", "Move", "Radicalize"], false, 2, "ROCAPS", "BOTTOM", [3,4,5,0,1,2]),
+  Card("YPG", ["If Wakhans court size is at its limit, radicalize the highest ranked political card", "Tax", "Radicalize"], false, 0, "ARSOCP", "BOTTOM", [5,0,1,2,3,4]),
+  Card("GPY", ["If a coalition has dominance, radicalize a matching patriot", "If no coalition has dominance, radicalize the card that would place the most spies and/or tribes", "Radicalize"], false, 2, "OPACSR", "TOP", [3,4,5,0,1,2]),
   // Add more cards as needed
 ];
 
 
 late List<Card> shuffledCards;
 int _cardIndex = 0;
-
+double topValue = 0;
+int colValue = 0;
+String additionalText = '';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -171,8 +178,24 @@ class _MyHomePageState extends State<MyHomePage> {
   void _compareCards() {
       // Compare the drawn card with the top card from the deck
       if (_cardIndex < shuffledCards.length) {
-        final drawnCard = shuffledCards[_cardIndex - 1];
-        final topCard = shuffledCards[_cardIndex];
+        colValue = shuffledCards[_cardIndex].numberOrder[  shuffledCards[_cardIndex - 1].blackArrowPos  ];
+        final redArrow = shuffledCards[_cardIndex - 1].redArrowPos;
+        final topVal = shuffledCards[_cardIndex].backUpperPos;
+        
+        if (redArrow && topVal == "TOP") {
+          topValue = 1;
+          
+        } else if (redArrow && topVal == "BOTTOM")  {
+          topValue = 0;
+
+        } else if (!redArrow && topVal == "TOP")  {
+          topValue = 0;
+
+        } else if (!redArrow && topVal == "BOTTOM")  {
+          topValue = 1;
+
+        }
+        additionalText = radPlace[topValue] ?? ''; // Look up corresponding value in the map
         // Compare the loyalty order, actions, or any other attributes as needed
       }
     }
@@ -182,6 +205,29 @@ class _MyHomePageState extends State<MyHomePage> {
       final card = shuffledCards[_cardIndex];
       return Column(
         children: [
+          SizedBox(
+            width: 400,
+            height: 200,
+            child: Stack(
+              children: <Widget>[
+                Image(
+                  image: AssetImage('graphics/market.jpg'),
+                  
+                  fit: BoxFit.cover,
+                ),
+                Positioned(
+                  left: colValue.toDouble() * 65 + 9,
+                  top: topValue * 86 + 24,
+                  child: SizedBox(
+                    width: 58,
+                    height: 80,
+                    child: Container(color: Colors.red.withOpacity(0.5),
+                    )
+                  )
+                )
+              ],
+            ),
+          ),
           Text(
                 "Pragmatic loyalty: ",
                 style: TextStyle(
@@ -205,7 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           Container(
-            padding: EdgeInsets.only(top: 50),
+            padding: EdgeInsets.only(top: 20),
           
             child: Text(
                 "Action order: ",
@@ -217,10 +263,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
           ),
-          for (final action in card.actions)   // Use map to display images for each letter in card.loyaltyOrder
+            for (final action in card.actions)   // Use map to display images for each letter in card.loyaltyOrder
             
               Container(
-                width: 350,
+                width: 400,
                 padding: const EdgeInsets.all(12),
                 
 
@@ -243,7 +289,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             
-          
+          Container(
+            padding: EdgeInsets.only(top: 20),
+            child: Row(
+              children: [
+                Text(
+                  "Place radicalized cards to the $additionalText",
+                  style: TextStyle(
+                    fontSize: 16, // Adjust font size
+                    fontWeight: FontWeight.bold, // Apply bold style
+                    fontStyle: FontStyle.italic, // Apply italic style
+                    color: Colors.black, // Change text color
+                  ),
+                ),
+              ],
+            ),
+          ),
           Container(
             padding: EdgeInsets.only(top: 50),
           
