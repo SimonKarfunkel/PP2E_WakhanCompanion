@@ -126,6 +126,22 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             color: Colors.white.withOpacity(0.5), // Semi-transparent black color overlay
           ),
+          // Vignette Effect
+        Positioned.fill(
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: RadialGradient(
+                center: const Alignment(0.0, 0.0),
+                radius: 0.6,
+                colors: [
+                  Colors.transparent,
+                  Colors.black.withOpacity(0.6), // Adjust opacity as needed
+                ],
+                stops: const [0.2, 1.0],
+              ),
+            ),
+          ),
+        ),
           Center(
         child: Center(
           child: Column(
