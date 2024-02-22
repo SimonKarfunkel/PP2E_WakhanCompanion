@@ -189,8 +189,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void _compareCards() {
       // Compare the drawn card with the top card from the deck
       if (_cardIndex < shuffledCards.length) {
-        colValue = shuffledCards[_cardIndex].numberOrder[  shuffledCards[_cardIndex - 1].blackArrowPos  ];
-        final redArrow = shuffledCards[_cardIndex - 1].redArrowPos;
+        colValue = shuffledCards[_cardIndex + 1].numberOrder[  shuffledCards[_cardIndex].blackArrowPos  ];
+        final redArrow = shuffledCards[_cardIndex].redArrowPos;
         final topVal = shuffledCards[_cardIndex].backUpperPos;
         
         if (redArrow && topVal == "TOP") {
