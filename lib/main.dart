@@ -341,16 +341,30 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       );
     } else {
-      return const Text(
-        "No more cards",
-        style: TextStyle(
-          fontSize: 18, // Adjust font size
-          fontWeight: FontWeight.bold, // Apply bold style
-          color: Colors.red, // Change text color
-          
-        ),
-      );
-    }
+      
+      setState(() {
+        _cardIndex = 0; // Reset _cardIndex
+        //Trigger rebuild
+        _shuffleDeck();
+      });
+      // Returning a placeholder widget while waiting for the UI to rebuild
+      return Container(
+                padding: const EdgeInsets.fromLTRB(100, 300, 100, 0),
+                child: const Align(alignment: Alignment.center,
+                child: Text(
+                "Reached the end of deck! Press button to shuffle and draw.",
+                textAlign: TextAlign.center, // Align text to the center
+
+                style: TextStyle(
+                  fontSize: 36, // Adjust font size
+                  fontWeight: FontWeight.bold, // Apply bold style
+                  color: Colors.black, // Change text color
+                ),
+              ),
+              ),
+              );
+      
+      }
   }
 
   @override
