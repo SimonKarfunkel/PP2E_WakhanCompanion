@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
@@ -91,7 +90,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: MyHomePage(title: 'Pax Pamir - Wakhan Companion'),
+      home: const MyHomePage(title: 'Pax Pamir - Wakhan Companion'),
     );
   }
 }
@@ -106,13 +105,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
 
 
@@ -123,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('graphics/background.jpg'), // Replace with your background image
                 fit: BoxFit.cover,
@@ -139,16 +132,16 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildCardInfo(),
               Expanded(child: Align(alignment: Alignment.bottomCenter,
-              child: Container(padding: EdgeInsets.all(30),
+              child: Container(padding: const EdgeInsets.all(30),
               child: ElevatedButton(
                 onPressed: () {
                   _drawCard();
                   _compareCards();
                 },
-                child: Text('Draw a Card'),
+                child: const Text('Draw a Card'),
                 )
                 ))
               ),
@@ -212,7 +205,7 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 200,
             child: Stack(
               children: <Widget>[
-                Image(
+                const Image(
                   image: AssetImage('graphics/market.jpg'),
                   
                   fit: BoxFit.cover,
@@ -230,7 +223,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          Text(
+          const Text(
                 "Pragmatic loyalty: ",
                 style: TextStyle(
                   fontSize: 32, // Adjust font size
@@ -253,9 +246,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           Container(
-            padding: EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 20),
           
-            child: Text(
+            child: const Text(
                 "Action order: ",
                 style: TextStyle(
                   fontSize: 32, // Adjust font size
@@ -274,14 +267,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.5),
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
                 border: Border.all(color: Colors.orange, width: 2),
                 ),
                 child: Text(
                   action,
                   softWrap: true,
                   textAlign: TextAlign.center, // Align text to the center
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20, // Adjust font size
                     fontStyle: FontStyle.italic, // Apply italic style
                     fontWeight: FontWeight.bold, // Apply bold style
@@ -292,12 +285,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             
           Container(
-            padding: EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 20),
             child: Align(alignment: Alignment.center,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Place radicalized cards to the ",
                   style: TextStyle(
                     fontSize: 16, // Adjust font size
@@ -308,7 +301,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Text(
                   radPlace[topValue] ?? '',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 22, // Adjust font size
                     fontWeight: FontWeight.bold, // Apply bold style
                     fontStyle: FontStyle.italic, // Apply italic style
@@ -320,9 +313,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 50),
+            padding: const EdgeInsets.only(top: 50),
           
-          child: Text(
+          child: const Text(
                 "Region Priority: ",
                 style: TextStyle(
                   fontSize: 16, // Adjust font size
@@ -348,7 +341,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       );
     } else {
-      return Text(
+      return const Text(
         "No more cards",
         style: TextStyle(
           fontSize: 18, // Adjust font size
