@@ -164,6 +164,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void _shuffleDeck() {
     shuffledCards = List.from(cards); // Make a copy of the original deck
     shuffledCards.shuffle(); // Shuffle the deck
+    _drawCard();
+    _compareCards();
   }
 
 
@@ -291,10 +293,12 @@ class _MyHomePageState extends State<MyHomePage> {
             
           Container(
             padding: EdgeInsets.only(top: 20),
+            child: Align(alignment: Alignment.center,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Place radicalized cards to the $additionalText",
+                  "Place radicalized cards to the ",
                   style: TextStyle(
                     fontSize: 16, // Adjust font size
                     fontWeight: FontWeight.bold, // Apply bold style
@@ -302,7 +306,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.black, // Change text color
                   ),
                 ),
+                Text(
+                  radPlace[topValue] ?? '',
+                  style: TextStyle(
+                    fontSize: 22, // Adjust font size
+                    fontWeight: FontWeight.bold, // Apply bold style
+                    fontStyle: FontStyle.italic, // Apply italic style
+                    color: Colors.deepOrange, // Change text color
+                  ),
+                ),
               ],
+            ),
             ),
           ),
           Container(
